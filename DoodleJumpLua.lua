@@ -1,4 +1,4 @@
-platform.apilevel = "1.0"
+platform.apilevel = "1.0"   -- remove for 3.2 qna lua
 
 -- Doodle Jump Lua for the TI-Nspire
 -- Adriweb 2012
@@ -357,3 +357,6 @@ end
 
 highscore = math.ceil(var.recall("highscore") or 0)
 start(false)
+
+-- platform.window:setScrollPosition(0,0)
+-- add for 3.2 qna lua
