@@ -225,7 +225,7 @@ function Terrain:init()
     self.platforms = {}
     self.types = {1,1,1,2,3}
     for i=1, 18 do
-        table.insert(self.platforms, Platform(mathrandom(0, pww), mathrandom(20, pwh), self.types[mathrandom(1,5)]))
+        table.insert(self.platforms, Platform(mathrandom(0, pww-10), mathrandom(25, pwh), self.types[mathrandom(1,5)]))
     end
 end
 
@@ -246,7 +246,7 @@ function Terrain:scroll()
         end
     end
     if mathrandom(0,9) > 7 then
-        table.insert(self.platforms, Platform(mathrandom(0, pww), 0, self.types[mathrandom(1,5)]))
+        table.insert(self.platforms, Platform(mathrandom(0, pww-10), 2, self.types[mathrandom(1,5)]))
     end
 end
 
@@ -276,8 +276,8 @@ function menuPaint(gc)
 	gc:drawString("[S] to change scrolling mode", .5*(pww-gc:getStringWidth("[S] to change scrolling mode")), pwh-71, "top")
 	gc:drawString("[P] to pause/unpause", .5*(pww-gc:getStringWidth("[P] to pause/unpause")), pwh-51, "top")
 	
-	gc:drawString("ESC/Click to (re)start", .5*(pww-gc:getStringWidth("ESC/Click to (re)start")), pwh-25, "top")
-	gc:drawString("ESC/Click to (re)start", .5*(pww-gc:getStringWidth("ESC/Click to (re)start")), pwh-25, "top")
+	gc:drawString("ESC/Click/Enter to (re)start", .5*(pww-gc:getStringWidth("ESC/Click/Enter to (re)start")), pwh-25, "top")
+	gc:drawString("ESC/Click/Enter to (re)start", .5*(pww-gc:getStringWidth("ESC/Click/Enter to (re)start")), pwh-25, "top")
 end
 
 
@@ -348,6 +348,10 @@ function on.charIn(ch)
 end
 
 function on.escapeKey()
+    start(true)
+end
+
+function on.enterKey()
     start(true)
 end
 
