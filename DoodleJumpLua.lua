@@ -324,7 +324,7 @@ function on.mouseMove(x,y)
     platform.window:invalidate()
 end
 
-function on.mouseUp()
+function on.mouseDown() -- and not mouseUp, because something is weird on < 3.2
     if gameStarted and not gameOver and timer.isRunning then
         doodle:shoot()
     else
